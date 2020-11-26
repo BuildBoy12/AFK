@@ -20,12 +20,6 @@
             if (sender is PlayerCommandSender player)
             {
                 Player p = Player.Get(player.SenderId);
-                if (!p.CheckPermission("afk"))
-                {
-                    response = "you should have access to this, dm me. TypicalIllusion#5726";
-                    return false;
-                }
-
                 p.IsOverwatchEnabled = !p.IsOverwatchEnabled;
                 response = p.IsOverwatchEnabled
                     ? "You have been set to overwatch mode.\nYou will not respawn."
