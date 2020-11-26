@@ -2,8 +2,6 @@
 {
     using CommandSystem;
     using Exiled.API.Features;
-    using Exiled.Permissions.Extensions;
-    using RemoteAdmin;
     using System;
 
     [CommandHandler(typeof(ClientCommandHandler))]
@@ -17,18 +15,12 @@
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            if (sender is PlayerCommandSender player)
-            {
-                Player p = Player.Get(player.SenderId);
-                p.IsOverwatchEnabled = !p.IsOverwatchEnabled;
-                response = p.IsOverwatchEnabled
-                    ? "You have been set to overwatch mode.\nYou will not respawn."
-                    : "You have been removed from overwatch mode.\nYou may now respawn.";
-                return true;
-            }
-
-            response = "This command must be executed from the game level.";
-            return false;
+            var ply = Player.Get((sender as CommandSender)?.SenderId);
+            ply.IsOverwatchEnabled = !ply.IsOverwatchEnabled;
+            response = ply.IsOverwatchEnabled
+                ? "You have been set to overwatch mode.\nYou will not respawn."
+                : "You have been removed from overwatch mode.\nYou may now respawn.";
+            return true;
         }
     }
 }
