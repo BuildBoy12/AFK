@@ -11,7 +11,7 @@
 
         public string[] Aliases => Array.Empty<string>();
 
-        public string Description => "Gives a player overwatch mode to prevent afk kicking";
+        public string Description => "Toggles overwatch on the user to prevent respawn.";
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
