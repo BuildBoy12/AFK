@@ -21,12 +21,12 @@
             if (component == null)
             {
                 ply.GameObject.AddComponent<AfkComponent>();
-                response = "You have been set to AFK mode.\nYou will not respawn.";
+                response = "\nYou have been set to AFK mode. You will not respawn.";
             }
             else
             {
                 component.Destroy();
-                response = "You have been removed from AFK mode.\nYou may now respawn.";
+                response = "\nYou have been removed from AFK mode. You may now respawn.";
             }
 
             return true;
