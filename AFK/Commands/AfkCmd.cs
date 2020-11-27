@@ -1,6 +1,7 @@
 ﻿namespace AFK
 {
     using CommandSystem;
+    using Components;
     using Exiled.API.Features;
     using System;
 
@@ -16,10 +17,18 @@
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             var ply = Player.Get((sender as CommandSender)?.SenderId);
-            ply.IsOverwatchEnabled = !ply.IsOverwatchEnabled;
-            response = ply.IsOverwatchEnabled
-                ? "You have been set to overwatch mode.\nYou will not respawn."
-                : "You have been removed from overwatch mode.\nYou may now respawn.";
+            var component = ply.GameObject.GetComponent<AfkComponent>();
+            if (component == null)
+            {
+                ply.GameObject.AddComponent<AfkComponent>();
+                response = "You have been set to AFK mode.\nYou will not respawn.";
+            }
+            else
+            {
+                component.Destroy();
+                response = "You have been removed from AFK mode.\nYou may now respawn.";
+            }
+
             return true;
         }
     }
