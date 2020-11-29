@@ -2,7 +2,6 @@ namespace AFK.Components
 {
     using Exiled.API.Features;
     using Exiled.Events.EventArgs;
-    using MEC;
     using UnityEngine;
     using PlayerEvents = Exiled.Events.Handlers.Player;
     using ServerEvents = Exiled.Events.Handlers.Server;
@@ -15,7 +14,7 @@ namespace AFK.Components
         {
             _ply = Player.Get(gameObject);
             _ply.Role = RoleType.Spectator;
-            PlayerEvents.Spawning += OnSpawning;
+            PlayerEvents.ChangingRole += OnChangingRole;
             ServerEvents.RespawningTeam += OnRespawningTeam;
         }
 
@@ -25,13 +24,9 @@ namespace AFK.Components
                 Destroy();
         }
 
-        public void OnSpawning(SpawningEventArgs ev)
+        public void OnChangingRole(ChangingRoleEventArgs ev)
         {
-            Timing.CallDelayed(0.3f, () =>
-            {
-                _ply.ClearInventory();
-                _ply.Role = RoleType.Spectator;
-            });
+            ev.NewRole = RoleType.Spectator;
         }
 
         public void OnRespawningTeam(RespawningTeamEventArgs ev)
@@ -41,7 +36,7 @@ namespace AFK.Components
 
         public void Destroy()
         {
-            PlayerEvents.Spawning -= OnSpawning;
+            PlayerEvents.ChangingRole -= OnChangingRole;
             ServerEvents.RespawningTeam -= OnRespawningTeam;
             Destroy(this);
         }

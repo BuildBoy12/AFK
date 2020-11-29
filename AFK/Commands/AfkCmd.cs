@@ -17,15 +17,14 @@
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             var ply = Player.Get((sender as CommandSender)?.SenderId);
-            var component = ply.GameObject.GetComponent<AfkComponent>();
-            if (component == null)
+            if (!ply.ReferenceHub.TryGetComponent(out AfkComponent afkComponent))
             {
                 ply.GameObject.AddComponent<AfkComponent>();
                 response = "\nYou have been set to AFK mode. You will not respawn.";
             }
             else
             {
-                component.Destroy();
+                afkComponent.Destroy();
                 response = "\nYou have been removed from AFK mode. You may now respawn.";
             }
 

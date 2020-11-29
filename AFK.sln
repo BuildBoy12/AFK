@@ -1,9 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFK", "AFK\AFK.csproj", "{4BD00BF0-728B-4E7B-A3E0-27E3BEDDF23E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFK", "AFK\AFK.csproj", "{C15EAB55-16D1-4CAB-8673-EB08FBB3A08B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BD00BF0-728B-4E7B-A3E0-27E3BEDDF23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BD00BF0-728B-4E7B-A3E0-27E3BEDDF23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BD00BF0-728B-4E7B-A3E0-27E3BEDDF23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BD00BF0-728B-4E7B-A3E0-27E3BEDDF23E}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {040980E3-96FC-45D0-904F-077D3A475950}
+		{C15EAB55-16D1-4CAB-8673-EB08FBB3A08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15EAB55-16D1-4CAB-8673-EB08FBB3A08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15EAB55-16D1-4CAB-8673-EB08FBB3A08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15EAB55-16D1-4CAB-8673-EB08FBB3A08B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
